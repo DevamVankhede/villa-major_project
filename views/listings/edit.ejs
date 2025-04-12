@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            text-align: center;
+            color: #ff7e5f;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s ease;
+        }
+        input:focus, textarea:focus {
+            border-color: #ff7e5f;
+            box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+        }
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+        .submit-btn {
+            background: linear-gradient(90deg, #ff7e5f, #feb47b);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #e76b4b, #f59c6a);
+        }
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Edit Listing</h3> 
+        <form method="POST" action="/listings/<%= listing.id %>?_method=PUT">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="listing[title]" value="<%= listing.title %>" placeholder="Title">
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="listing[description]" placeholder="Description"><%= listing.description %></textarea>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="listing[price]" value="<%= listing.price %>" placeholder="Price">
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="listing[location]" value="<%= listing.location %>" placeholder="Location">
+
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="listing[country]" value="<%= listing.country %>" placeholder="Country">
+
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" name="listing[image]" value="<%= listing.image %>" placeholder="Image URL">
+
+            <button type="submit" class="submit-btn">Update Listing</button>
+        </form>
+    </div>
+</body>
+</html>

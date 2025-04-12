@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>D'Raj Villas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f8e1f4, #ffe9d6);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      color: #fff;
+      z-index: 2;
+      animation: fadeUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+
+    .hero-content a {
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      background-color: #ff7e5f;
+      color: white;
+      font-weight: 500;
+      border-radius: 30px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero-content a:hover {
+      background-color: #ff6a4d;
+      transform: scale(1.05);
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 4rem 2rem;
+      background-color: #fff;
+    }
+
+    .feature {
+      max-width: 300px;
+      text-align: center;
+      margin: 1rem;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .feature:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature i {
+      font-size: 3rem;
+      color: #ff7e5f;
+      margin-bottom: 1rem;
+    }
+
+    .feature h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      text-align: center;
+      padding: 1rem;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+    <header>
+      <div class="hero-content">
+        <h1>Welcome to D'Raj Villas</h1>
+        <p>Luxury stays nestled in nature’s arms</p>
+        <a href="/listings">Explore Now <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </header>
+    
+    <section class="features">
+      <div class="feature">
+        <i class="fas fa-water"></i>
+        <h3>Beachfront</h3>
+        <p>Enjoy scenic ocean views and private beach access.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-spa"></i>
+        <h3>Relaxing Spa</h3>
+        <p>Experience rejuvenating massages and therapies.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-mountain"></i>
+        <h3>Nature Escapes</h3>
+        <p>Reconnect with nature through our green retreats.</p>
+      </div>
+    </section>
+    
+    <%- include("../includes/footer.ejs") %>
+    
+    
+</body>
+</html>
