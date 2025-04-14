@@ -1,20 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4" style="height: 5rem;">
-    <div class="container-fluid h-100">
-      <a class="navbar-brand d-flex align-items-center gap-2 h-100" href="/">
-        <i class="fas fa-compass fa-lg" style="color: #ff5a5f;"></i>
-        <span class="fw-bold" style="font-size: 1.5rem;">D'Raj Villas</span>
-      </a>
-  
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <div class="collapse navbar-collapse h-100" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto d-flex align-items-center h-100">
-          <a class="nav-link active" href="/listings">All Villas</a>
-          <a class="nav-link" href="/listings/new">Add Villas</a>
-        </div>
+  <div class="container-fluid h-100">
+    <a class="navbar-brand d-flex align-items-center gap-2 h-100" href="/">
+      <i class="fas fa-compass fa-lg" style="color: #ff5a5f;"></i>
+      <span class="fw-bold" style="font-size: 1.5rem;">D'Raj Villas</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse h-100" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto d-flex align-items-center h-100 gap-3">
+        <a class="nav-link" href="/listings"><i class="fa-solid fa-list"></i> All Villas</a>
+        <a class="nav-link" href="/listings/new"><i class="fa-solid fa-plus"></i> Add Villas</a>
+
+        <% if (!currUser) { %>
+          <!-- Show when not logged in -->
+          <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+          <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i> Sign Up</a>
+        <% } else { %>
+          <!-- Show when logged in -->
+          <form action="/logout"  class="d-inline">
+            <button class="btn btn-outline-danger btn-sm">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </form>
+        <% } %>
       </div>
     </div>
-  </nav>
-  
+  </div>
+</nav>
